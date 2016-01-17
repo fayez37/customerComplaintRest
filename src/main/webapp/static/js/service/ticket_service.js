@@ -4,7 +4,7 @@ App.factory('TicketService', ['$http', '$q', function($http, $q){
 	return {
 		
 			fetchAllTickets: function() {
-					return $http.get('http://localhost:8080/CustomerComplaintSystemRest/tickets/')
+					return $http.get('tickets/')
 							.then(
 									function(response){
 										return response.data;
@@ -16,10 +16,10 @@ App.factory('TicketService', ['$http', '$q', function($http, $q){
 							);
 			},
 			fetchTicketWithId: function(id) {
-				return $http.get('http://localhost:8080/CustomerComplaintSystemRest/ticket/'+id)
+				return $http.get('ticket/'+id)
 						.then(
 								function(response){
-									/*$http.get('http://localhost:8080/CustomerComplaintSystemRest/comments/'+id).then( function ( comments ) {
+									/*$http.get('comments/'+id).then( function ( comments ) {
 										response.data.comments = comments;
 									},function(errResponse){
 										console.error('Error while fetching comments');
@@ -34,7 +34,7 @@ App.factory('TicketService', ['$http', '$q', function($http, $q){
 						);
 		},
 		    createTicket: function(ticket){
-					return $http.post('http://localhost:8080/CustomerComplaintSystemRest/ticket/', ticket)
+					return $http.post('ticket/', ticket)
 							.then(
 									function(response){
 										return response.data;
@@ -47,7 +47,7 @@ App.factory('TicketService', ['$http', '$q', function($http, $q){
 		    },
 		    
 		    addComment: function(newComment,id){
-				return $http.post('http://localhost:8080/CustomerComplaintSystemRest/addComment/'+id, newComment)
+				return $http.post('addComment/'+id, newComment)
 						.then(
 								function(response){
 									return response.data;
@@ -60,7 +60,7 @@ App.factory('TicketService', ['$http', '$q', function($http, $q){
 		    },
 		    
 		    updateTicket: function(ticket, id){
-					return $http.put('http://localhost:8080/CustomerComplaintSystemRest/ticket/'+id, ticket)
+					return $http.put('ticket/'+id, ticket)
 							.then(
 									function(response){
 										return response.data;
